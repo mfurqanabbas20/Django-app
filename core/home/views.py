@@ -8,10 +8,9 @@ def home(request):
 
 def success_page(request):
     # data hm context k zariya phonchaiyein gaye template mei 
-    people = [
+    peoples = [
         {"name": "Furqan", "age": 22},
         {"name": "Furqan", "age": 21},
-        {"name": "Furqan", "age": 20}
+        {"name": "Furqan", "age": 20},
     ]
-    print("*" * 10)
-    return render(request, "index.html", context={'peoples', people})
+    return render(request, "index.html", context={"peoples": peoples})
