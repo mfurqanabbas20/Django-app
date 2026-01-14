@@ -15,9 +15,16 @@
   </tr>
   {% for people in peoples %}
   <tr>
-    <td>Centro comercial Moctezuma</td>
-    <td>Francisco Chang</td>
-    <td>Mexico</td>
+    <td>{{forloop.counter}}</td>
+    <td>{{people.name}}</td>
+    <td>{{people.age}}</td>
+    <td>
+    {% if people.age > 18%}
+    good
+    {% else %}
+    no
+    {% endif %}
+    </td>
   </tr>
   {% endfor %}
 </table>
