@@ -10,3 +10,5 @@ class Student(models.Model):
     grade = models.IntegerField(null=True, blank=True)
     image = models.ImageField()
     file = models.FileField()
+
+# models = model maanger
