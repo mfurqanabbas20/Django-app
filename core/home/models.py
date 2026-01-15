@@ -14,6 +14,11 @@ from django.db import models
 
 # Car.objects.filter(id=1).update(car_name = "Creta")
 
+# Car.objects.get(id=1).delete()
+
+# Car.objects.all().delete()
+
+
 
 class Student(models.Model):
     # id = model.AutoField()
