@@ -1,0 +1,14 @@
+
+{% block start %}
+    <h1>Receipe Page</h1>
+    <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <label for="">Receipe Name</label>
+    <input name="receipe_name" type="text">
+    <label for="">Receipe Description</label>
+    <input name="receipe_description" type="text">
+    <label for="">Receipe Image</label>
+    <input type="file" name="receipe_image">
+    <button type="submit">Submit</button>
+    </form>
+{% endblock %}
