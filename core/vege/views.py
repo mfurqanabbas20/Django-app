@@ -25,3 +25,12 @@ def receipes(request):
         return redirect('/vege/')
     
     return render(request, 'receipes.html')
+
+
+def login_page(request):
+    return render(request, "login.html")
+
+def register_page(request):
+    if request.method == "POST":
+        first_name = request.POST.get("first_name")
+    return render(request, "login.html")

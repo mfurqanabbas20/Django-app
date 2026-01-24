@@ -1,0 +1,14 @@
+
+{% block start %}
+    <h1>Login Page</h1>
+    <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <label for="">User Email</label>
+    <input name="email" type="text">
+    <label for="">Password</label>
+    <input name="password" type="text">
+    <label for="">Receipe Image</label>
+    <input type="file" name="receipe_image">
+    <button type="submit">Submit</button>
+    </form>
+{% endblock %}
