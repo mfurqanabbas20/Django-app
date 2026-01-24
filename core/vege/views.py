@@ -2,10 +2,14 @@ from django.shortcuts import render, redirect
 from .models import *
 from django.contrib.auth.models import User
 from django.contrib import messages
+from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required
+# login maintains the session while authenticate user
+
 
 # Create your views here.
 
-
+@login_required(login_url="/login/")
 def receipes(request):
     if request.method == "POST":
         data = request.POST
@@ -30,7 +34,30 @@ def receipes(request):
 
 
 def login_page(request):
+    if request.method == "POST":
+        username = request.POST.get("user_name")
+        password = request.POST.get("password")
+
+
+    if not User.objects.filter(username=username).exists():
+        messages.info(request, 'Username not exists')
+        return redirect("/login/")
+    
+    user = authenticate(username=username, password=password)
+
+    if user is None:
+        messages.info(request, 'Invalid login credentials')
+        return redirect("/login/")
+    
+    else:
+        login(request, user)
+
+
     return render(request, "login.html")
+
+def logout_page(request):
+    logout()
+    return redirect("/login/")
 
 def register_page(request):
     if request.method == "POST":
@@ -44,8 +71,6 @@ def register_page(request):
     if user.exists():
         messages.info(request, 'Username already taken')
         return redirect("/register/")
-
-
 
     user = User.objects.create(
         first_name,
