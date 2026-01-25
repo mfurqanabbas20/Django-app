@@ -33,6 +33,22 @@ def receipes(request):
     return render(request, 'receipes.html')
 
 
+# vege = Receipe.objects.all().order_by('receipe_view_count') asc
+# vege = Receipe.objects.all().order_by('-receipe_view_count') minus for desc
+# vege = Receipe.objects.all().order_by('-receipe_view_count')[0:10] for limit
+
+# vege = Receipe.objects.filter(receipe_view_count = 55) for filtering
+
+
+# double underscore special string hota 
+
+# gte, lte,
+
+# vege = Receipe.objects.filter(receipe_view_count__gte = 55) for filtering greater
+
+# vege = Receipe.objects.filter(receipe_view_count__lte = 55) for filtering less
+
+
 def login_page(request):
     if request.method == "POST":
         username = request.POST.get("user_name")
