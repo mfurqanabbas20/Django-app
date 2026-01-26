@@ -48,6 +48,13 @@ def receipes(request):
 
 # vege = Receipe.objects.filter(receipe_view_count__lte = 55) for filtering less
 
+# queryset = Student.objects.filter(student_name__startswith = "fur")
+
+# queryset = Student.objects.filter(student_name__endswith = "qan")
+
+# queryset = Student.objects.filter(student_name__icontains = "a")
+
+
 
 def login_page(request):
     if request.method == "POST":
