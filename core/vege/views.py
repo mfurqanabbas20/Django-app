@@ -6,7 +6,6 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 # login maintains the session while authenticate user
 
-
 # Create your views here.
 
 @login_required(login_url="/login/")
@@ -39,7 +38,6 @@ def receipes(request):
 
 # vege = Receipe.objects.filter(receipe_view_count = 55) for filtering
 
-
 # double underscore special string hota 
 
 # gte, lte,
@@ -53,8 +51,6 @@ def receipes(request):
 # queryset = Student.objects.filter(student_name__endswith = "qan")
 
 # queryset = Student.objects.filter(student_name__icontains = "a")
-
-
 
 def login_page(request):
     if request.method == "POST":
@@ -74,7 +70,6 @@ def login_page(request):
     
     else:
         login(request, user)
-
 
     return render(request, "login.html")
 
